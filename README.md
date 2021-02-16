@@ -135,8 +135,8 @@ for idxtrain, idxtest in kf.split(dat):
   mae_nn.append(mean_absolute_error(y_test, yhat_nn))
 print("Validated MAE Neural Network Regression = ${:,.2f}".format(1000*np.mean(mae_nn)))
 ```
-Validated MAE Neural Network Regression = $4,152.78
-Validated MAE Neural Network Regression = $4,134.34
+Validated MAE Neural Network Regression = $4,152.78 </br>
+Validated MAE Neural Network Regression = $4,134.34 </br>
 Validated MAE Neural Network Regression = $4,108.31
 
 ## XGboost

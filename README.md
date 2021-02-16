@@ -11,35 +11,55 @@
 ## Kernel Weighted Local Regression
 ### Gaussian Kernel
 ```
-yhat_lk = model_lowess(dat_train,dat_test,Gaussian,0.25)
-mae_lk = mean_absolute_error(dat_test[:,1], yhat_lk)
-print("MAE Kernel Weighted Regression = ${:,.2f}".format(1000*mae_lk))
+mae_lk = []
 
-MAE Kernel Weighted Regression = $3,763.59
+for idxtrain, idxtest in kf.split(dat):
+  dat_test = dat[idxtest,:]
+  y_test = dat_test[np.argsort(dat_test[:, 0]),1]
+  yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Gaussian,0.25)
+  mae_lk.append(mean_absolute_error(y_test, yhat_lk))
+print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
+
+Validated MAE Local Kernel Regression = $4,107.38
 ```
 ### Tricubic Kernel
 ```
-yhat_lk = model_lowess(dat_train,dat_test,tricubic,0.68)
-mae_lk = mean_absolute_error(dat_test[:,1], yhat_lk)
-print("MAE Kernel Weighted Regression = ${:,.2f}".format(1000*mae_lk))
+mae_lk = []
 
-MAE Kernel Weighted Regression = $3,753.22
+for idxtrain, idxtest in kf.split(dat):
+  dat_test = dat[idxtest,:]
+  y_test = dat_test[np.argsort(dat_test[:, 0]),1]
+  yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Gaussian,0.25)
+  mae_lk.append(mean_absolute_error(y_test, yhat_lk))
+print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
+
+Validated MAE Local Kernel Regression = $4,126.14
 ```
 ### Epanechnikov Kernel
 ```
-yhat_lk = model_lowess(dat_train,dat_test,Epanechnikov,0.53)
-mae_lk = mean_absolute_error(dat_test[:,1], yhat_lk)
-print("MAE Kernel Weighted Regression = ${:,.2f}".format(1000*mae_lk))
+mae_lk = []
 
-MAE Kernel Weighted Regression = $3,750.64
+for idxtrain, idxtest in kf.split(dat):
+  dat_test = dat[idxtest,:]
+  y_test = dat_test[np.argsort(dat_test[:, 0]),1]
+  yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Gaussian,0.25)
+  mae_lk.append(mean_absolute_error(y_test, yhat_lk))
+print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
+
+Validated MAE Local Kernel Regression = $4,114.04
 ```
 ### Quartic Kernel
 ```
-yhat_lk = model_lowess(dat_train,dat_test,Quartic,0.68)
-mae_lk = mean_absolute_error(dat_test[:,1], yhat_lk)
-print("MAE Kernel Weighted Regression = ${:,.2f}".format(1000*mae_lk))
+mae_lk = []
 
-MAE Kernel Weighted Regression = $3,759.42
+for idxtrain, idxtest in kf.split(dat):
+  dat_test = dat[idxtest,:]
+  y_test = dat_test[np.argsort(dat_test[:, 0]),1]
+  yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Quartic,0.68)
+  mae_lk.append(mean_absolute_error(y_test, yhat_lk))
+print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
+
+Validated MAE Local Kernel Regression = $4,123.69
 ```
 ## Neural Networks
 

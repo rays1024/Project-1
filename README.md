@@ -4,6 +4,57 @@
 
 ## Imports
 
+### General Imports
+```
+import numpy as np
+import pandas as pd
+from math import ceil
+from scipy import linalg
+from scipy.interpolate import interp1d
+import matplotlib.pyplot as plt
+from matplotlib import pyplot
+```
+### Imports for Creating Neural Networks
+```
+import keras
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.layers import Dropout
+from sklearn.metrics import r2_score
+from keras.optimizers import Adam
+from keras.callbacks import EarlyStopping
+```
+### Imports for Uploading Files
+```
+from google.colab import files
+data_to_load = files.upload()
+```
+```
+import io
+df = pd.read_csv(io.BytesIO(data_to_load['Boston Housing Prices.csv']))
+```
+### Imports for Calculations
+```
+from sklearn.model_selection import train_test_split as tts
+```
+```
+from sklearn.metrics import mean_absolute_error
+```
+```
+from sklearn.linear_model import LinearRegression
+```
+```
+from sklearn.model_selection import KFold
+```
+### Import for Creating Extreme Boosting Algorithm
+```
+import xgboost as xgb
+```
+### Import for Creating Support Vector Regression
+```
+from sklearn.svm import SVR
+```
+
 ## Linear Regression
 ![alt text](https://github.com/rays1024/Project-1/blob/main/[image name]?raw=true)
 
@@ -139,6 +190,6 @@ Validated MAE Neural Network Regression = $4,152.78 </br>
 Validated MAE Neural Network Regression = $4,134.34 </br>
 Validated MAE Neural Network Regression = $4,108.31
 
-## XGboost
+## Extreme Boosting Algorithm (XGBoost)
 
-## SVR 
+## Support Vector Regression (SVR) 

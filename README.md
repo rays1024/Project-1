@@ -42,23 +42,23 @@ def model_lowess(dat_train,dat_test,kern,tau):
   f = interp1d(datl[:,0], datl[:,1],fill_value='extrapolate')
   return f(dat_test[:,0])
 ```
+#### Tricubic Kernel
 ```
-# Tricubic Kernel
 def tricubic(x):
   return np.where(np.abs(x)>1,0,70/81*(1-np.abs(x)**3)**3)
 ```
+#### Epanechnikov Kernel
 ```
-# Epanechnikov Kernel
 def Epanechnikov(x):
   return np.where(np.abs(x)>1,0,3/4*(1-np.abs(x)**2)) 
 ```
+#### Quartic Kernel
 ```
-# Quartic Kernel
 def Quartic(x):
   return np.where(np.abs(x)>1,0,15/16*(1-np.abs(x)**2)**2)
 ```
+#### Gaussian Kernel
 ```
-# Gaussian Kernel
 def Gaussian(x):
   return np.where(np.abs(x)>2,0,np.exp(-1/2*x**2))
 ```
@@ -75,9 +75,9 @@ for idxtrain, idxtest in kf.split(dat):
   yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Gaussian,0.25)
   mae_lk.append(mean_absolute_error(y_test, yhat_lk))
 print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
-
-Validated MAE Local Kernel Regression = $4,107.38
 ```
+Validated MAE Local Kernel Regression = $4,107.38
+
 ### Tricubic Kernel Regression MAE
 ```
 mae_lk = []
@@ -88,9 +88,9 @@ for idxtrain, idxtest in kf.split(dat):
   yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Gaussian,0.25)
   mae_lk.append(mean_absolute_error(y_test, yhat_lk))
 print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
-
-Validated MAE Local Kernel Regression = $4,126.14
 ```
+Validated MAE Local Kernel Regression = $4,126.14
+
 ### Epanechnikov Kernel Regression MAE
 ```
 mae_lk = []
@@ -101,9 +101,9 @@ for idxtrain, idxtest in kf.split(dat):
   yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Gaussian,0.25)
   mae_lk.append(mean_absolute_error(y_test, yhat_lk))
 print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
-
-Validated MAE Local Kernel Regression = $4,114.04
 ```
+Validated MAE Local Kernel Regression = $4,114.04
+
 ### Validated Quartic Kernel Regression MAE
 ```
 mae_lk = []
@@ -114,9 +114,9 @@ for idxtrain, idxtest in kf.split(dat):
   yhat_lk = model_lowess(dat[idxtrain,:],dat[idxtest,:],Quartic,0.68)
   mae_lk.append(mean_absolute_error(y_test, yhat_lk))
 print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae_lk)))
-
-Validated MAE Local Kernel Regression = $4,123.69
 ```
+Validated MAE Local Kernel Regression = $4,123.69
+
 ## Neural Networks
 ### Neural Network Regression Plot
 
@@ -134,11 +134,11 @@ for idxtrain, idxtest in kf.split(dat):
   yhat_nn = model.predict(X_test.reshape(-1,1))
   mae_nn.append(mean_absolute_error(y_test, yhat_nn))
 print("Validated MAE Neural Network Regression = ${:,.2f}".format(1000*np.mean(mae_nn)))
-
+```
 Validated MAE Neural Network Regression = $4,152.78
 Validated MAE Neural Network Regression = $4,134.34
 Validated MAE Neural Network Regression = $4,108.31
-```
+
 ## XGboost
 
 ## SVR 

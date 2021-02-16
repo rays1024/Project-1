@@ -191,5 +191,42 @@ Validated MAE Neural Network Regression = $4,134.34 </br>
 Validated MAE Neural Network Regression = $4,108.31
 
 ## Extreme Boosting Algorithm (XGBoost)
+```
+model_xgb = xgb.XGBRegressor(objective ='reg:squarederror',n_estimators=100,reg_lambda=20,alpha=1,gamma=10,max_depth=3)
+mae_xgb = []
+
+for idxtrain, idxtest in kf.split(dat):
+  X_train = dat[idxtrain,0]
+  y_train = dat[idxtrain,1]
+  X_test  = dat[idxtest,0]
+  y_test = dat[idxtest,1]
+  model_xgb.fit(X_train.reshape(-1,1),y_train)
+  yhat_xgb = model_xgb.predict(X_test.reshape(-1,1))
+  mae_xgb.append(mean_absolute_error(y_test, yhat_xgb))
+print("Validated MAE XGBoost Regression = ${:,.2f}".format(1000*np.mean(mae_xgb)))
+```
+Validated MAE XGBoost Regression = $4,136.63
 
 ## Support Vector Regression (SVR) 
+```
+svr_rbf = SVR(kernel='rbf', C=100, gamma=0.1, epsilon=.1)
+svr_lin = SVR(kernel='linear', C=100, gamma='auto')
+svr_poly = SVR(kernel='poly', C=100, gamma='auto', degree=3, epsilon=.1,coef0=1)
+
+model = svr_rbf
+
+mae_svr = []
+
+for idxtrain, idxtest in kf.split(dat):
+  X_train = dat[idxtrain,0]
+  y_train = dat[idxtrain,1]
+  X_test  = dat[idxtest,0]
+  y_test = dat[idxtest,1]
+  model.fit(X_train.reshape(-1,1),y_train)
+  yhat_svr = model.predict(X_test.reshape(-1,1))
+  mae_svr.append(mean_absolute_error(y_test, yhat_svr))
+print("Validated MAE Support Vector Regression = ${:,.2f}".format(1000*np.mean(mae_svr)))
+```
+Validated MAE Support Vector Regression = $4,130.50
+
+## Performance Comparison

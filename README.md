@@ -129,7 +129,7 @@ def Gaussian(x):
 
 ### Four Kernel Regressions Summary Plot
 
-### Gaussian Kernel Regression MAE
+### Validated Gaussian Kernel Regression MAE
 ```
 mae_lk = []
 
@@ -142,7 +142,7 @@ print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae
 ```
 Validated MAE Local Kernel Regression = $4,107.38
 
-### Tricubic Kernel Regression MAE
+### Validated Tricubic Kernel Regression MAE
 ```
 mae_lk = []
 
@@ -155,7 +155,7 @@ print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae
 ```
 Validated MAE Local Kernel Regression = $4,126.14
 
-### Epanechnikov Kernel Regression MAE
+### Validated Epanechnikov Kernel Regression MAE
 ```
 mae_lk = []
 

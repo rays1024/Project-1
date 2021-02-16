@@ -1,6 +1,7 @@
 # Advanced Applied Machine Learning Project 1
 
 ## Dataset Description and Exploration
+![alt text](https://github.com/rays1024/Project-1/blob/main/[image name]?raw=true)
 
 ## Imports
 
@@ -55,9 +56,21 @@ import xgboost as xgb
 from sklearn.svm import SVR
 ```
 
-## Linear Regression
-![alt text](https://github.com/rays1024/Project-1/blob/main/[image name]?raw=true)
+## Validated Linear Regression MAE
+```
+mae_lm = []
 
+for idxtrain, idxtest in kf.split(dat):
+  X_train = dat[idxtrain,0]
+  y_train = dat[idxtrain,1]
+  X_test  = dat[idxtest,0]
+  y_test = dat[idxtest,1]
+  lm.fit(X_train.reshape(-1,1),y_train)
+  yhat_lm = lm.predict(X_test.reshape(-1,1))
+  mae_lm.append(mean_absolute_error(y_test, yhat_lm))
+print("Validated MAE Linear Regression = ${:,.2f}".format(1000*np.mean(mae_lm)))
+```
+Validated MAE Linear Regression = $4,433.17
 
 ## Kernel Weighted Local Regression
 

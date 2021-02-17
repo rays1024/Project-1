@@ -135,7 +135,7 @@ def Gaussian(x):
 ```
 
 ### Four Kernel Regressions Summary Plot
-![alt text](https://github.com/rays1024/Project-1/blob/main/[image name]?raw=true)
+![alt text](https://github.com/rays1024/Project-1/blob/main/lk.png?raw=true)
 
 
 ### Validated Gaussian Kernel Regression MAE

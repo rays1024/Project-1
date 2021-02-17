@@ -243,6 +243,8 @@ Validated MAE XGBoost Regression = $4,136.63
 
 ## Support Vector Regression (SVR)
 
+The Support Vector Regression is based on the Support Vector Machine, which is an algorithm for separating two classes of data within one vector space with a hyperplane. The SVR uses this hyperplane and decision boundaries to construct a regression line that estimates the mapping from x to y. The decision boundaries allow us to decide how much error we wish to include in our results. The validated mean absolute error from SVR is $4,130.50. 
+
 ### Validated SVR MAE
 ```
 svr_rbf = SVR(kernel='rbf', C=100, gamma=0.1, epsilon=.1)

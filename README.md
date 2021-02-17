@@ -135,7 +135,7 @@ def Gaussian(x):
 ```
 
 ### Four Kernel Regressions Summary Plot
-![alt text](https://github.com/rays1024/Project-1/blob/main/lk.png?raw=true)
+![alt text](https://github.com/rays1024/Project-1/blob/main/[image name]?raw=true)
 
 
 ### Validated Gaussian Kernel Regression MAE
@@ -254,3 +254,14 @@ print("Validated MAE Support Vector Regression = ${:,.2f}".format(1000*np.mean(m
 Validated MAE Support Vector Regression = $4,130.50
 
 ## Performance Comparison
+### From Lowest MAE to Highest MAE
+1. Gaussian Kernel Regression ---- $4,107.38
+2. Neural Networks Regression ---- $4,108.31
+3. Epanechnikov Kernel Regression ---- $4,114.04
+4. Quartic Kernel Regression ---- $4,123.69
+5. Tricubic Kernel Regression ---- $4,126.14
+6. Support Vector Regression ---- $4,130.50
+7. Neural Networks Regression ---- $4,134.34
+8. XGBoost ---- $4,136.63
+9. Neural Networks Regression ----- $4,152.78
+10. Linear Regression ---- $4,433.17

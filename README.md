@@ -3,8 +3,10 @@
 ## Dataset Description and Exploration
 ![alt text](https://github.com/rays1024/Project-1/blob/main/data.png?raw=true)
 
+The data file we use contains Boston housing prices and many other variables. For our analysis focus, we will only use the number of rooms as our independent variable in predicting the house prices in thousands of dollars. From the graph, we can see that there is a general upward trend in the plot and there is also a slight curve to it.
 
 ## Imports
+Here are some import codes for our analysis.
 
 ### General Imports
 ```
@@ -58,9 +60,9 @@ from sklearn.svm import SVR
 ```
 
 ## Linear Regression
+Linear regression is a very commonly used tool for making prediction. It estimates each x's for their predicting power and the significance of their results. It calculates an estimation function for which the sum of squared differences between the observations and predictions is the least. When we only have one x, the number of rooms, the linear regression produces a very simple prediction function: a straight line. This function is a very weak learner and yields a high mean absolute error of $4,433.17 as shown below.
 ### Linear Regression Plot
 ![alt text](https://github.com/rays1024/Project-1/blob/main/lm.png?raw=true)
-
 
 ### Validated Linear Regression MAE
 ```
@@ -79,7 +81,7 @@ print("Validated MAE Linear Regression = ${:,.2f}".format(1000*np.mean(mae_lm)))
 Validated MAE Linear Regression = $4,433.17
 
 ## Kernel Weighted Local Regression
-
+The kernel weighted local regression estimates the function locally as its name indicates. There are no parameters that define a function in kernel regression. For each x value, the algorithm generates an estimation for y using the individual x's neighboring values. The number of neighbors, k, determines the variance and bias of the estimation. Higher value of k yields low variance and high bias, and vice versa. We can use different kernel functions for assigning weights based on the Euclidean distance between the x value and its neighbors. Here, we used four kernel functions to determine which yields the lowest mean absolute error. After our estimations, we found that the Gaussian kernel has the lowest mean absolute error of $4,107.38.
 
 ### Functions
 ```
@@ -137,6 +139,7 @@ def Gaussian(x):
 ### Four Kernel Regressions Summary Plot
 ![alt text](https://github.com/rays1024/Project-1/blob/main/lk.png?raw=true)
 
+We have ploted the estimations of the four kernel functions and there are very small differences between them. I found the optimal tau value for each kernel and they all yield very good results.
 
 ### Validated Gaussian Kernel Regression MAE
 ```
@@ -191,9 +194,12 @@ print("Validated MAE Local Kernel Regression = ${:,.2f}".format(1000*np.mean(mae
 Validated MAE Local Kernel Regression = $4,123.69
 
 ## Neural Networks
+The neural networks contain many nodes or neurons. Most neural networks neurons are in layers, and neurons in each layer connect to at least a neuron one layer before it and one layer after it. The data are passed from the neurons in the first layer to those in the last layer. All neural networks have to have an activation function. In our case, since we are performing a regression, we need a linear activation. After the algorithm generates a regression from training, we need to validate the results using k-fold validation. This method splits the dataset into k groups and train the algorithm in k iterations. Each iteration, it uses one k-1 groups for training and the last kth group is used for validation. We also generalize this method to other regressions for more reliable results. The mean absolute errors from a 3-fold validation are $4,152.78, $4,134.34 and $4,108.31 respectively.
+
 ### Neural Network Regression Plot
 ![alt text](https://github.com/rays1024/Project-1/blob/main/nn.png?raw=true)
 
+Here is a plot of neural networks regression. It look a lot like the plots of kernel regression, and it shows that this is also a quite strong learner.
 
 ### Validated Neural Network Regression MAE
 ```
@@ -215,6 +221,8 @@ Validated MAE Neural Network Regression = $4,134.34 </br>
 Validated MAE Neural Network Regression = $4,108.31
 
 ## Extreme Boosting Algorithm (XGBoost)
+
+### Validated XGBoost MAE
 ```
 model_xgb = xgb.XGBRegressor(objective ='reg:squarederror',n_estimators=100,reg_lambda=20,alpha=1,gamma=10,max_depth=3)
 mae_xgb = []
@@ -231,7 +239,9 @@ print("Validated MAE XGBoost Regression = ${:,.2f}".format(1000*np.mean(mae_xgb)
 ```
 Validated MAE XGBoost Regression = $4,136.63
 
-## Support Vector Regression (SVR) 
+## Support Vector Regression (SVR)
+
+### Validated SVR MAE
 ```
 svr_rbf = SVR(kernel='rbf', C=100, gamma=0.1, epsilon=.1)
 svr_lin = SVR(kernel='linear', C=100, gamma='auto')
@@ -254,7 +264,7 @@ print("Validated MAE Support Vector Regression = ${:,.2f}".format(1000*np.mean(m
 Validated MAE Support Vector Regression = $4,130.50
 
 ## Performance Comparison
-### From Lowest MAE to Highest MAE
+### From the Lowest MAE to the Highest
 1. Gaussian Kernel Regression ------ $4,107.38
 2. Neural Networks Regression ------ $4,108.31
 3. Epanechnikov Kernel Regression ------ $4,114.04
@@ -265,3 +275,5 @@ Validated MAE Support Vector Regression = $4,130.50
 8. XGBoost ------ $4,136.63
 9. Neural Networks Regression ------ $4,152.78
 10. Linear Regression ------ $4,433.17
+
+Our results show that the Gaussian kernel regression yields the best result, and all kernel regressions yield decent results comparing with othre methods. The neural networks regression yields three results from a 3-fold validation, and their average performance is not very good: two of the three results are placed after the fifth position. The SVR and XGBoost methods performed about the same as the neural networks regression. The worst performance is from linear regression, which is not surprising since it is the weakest learner among all methods compared.

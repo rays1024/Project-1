@@ -278,4 +278,6 @@ Validated MAE Support Vector Regression = $4,130.50
 9. Neural Networks Regression ------ $4,152.78
 10. Linear Regression ------ $4,433.17
 
+![alt text](https://github.com/rays1024/Project-1/blob/main/ranks.png?raw=true)
+
 Our results show that the Gaussian kernel regression yields the best result, and all kernel regressions yield decent results comparing with othre methods. The neural networks regression yields three results from a 3-fold validation, and their average performance is not very good: two of the three results are placed after the fifth position. The SVR and XGBoost methods performed about the same as the neural networks regression. The worst performance is from linear regression, which is not surprising since it is the weakest learner among all methods compared.

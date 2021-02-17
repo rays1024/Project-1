@@ -1,7 +1,8 @@
 # Advanced Applied Machine Learning Project 1
 
 ## Dataset Description and Exploration
-![alt text](https://github.com/rays1024/Project-1/blob/main/[image name]?raw=true)
+![alt text](https://github.com/rays1024/Project-1/blob/main/data.png?raw=true)
+
 
 ## Imports
 
@@ -56,7 +57,12 @@ import xgboost as xgb
 from sklearn.svm import SVR
 ```
 
-## Validated Linear Regression MAE
+## Linear Regression
+### Linear Regression Plot
+![alt text](https://github.com/rays1024/Project-1/blob/main/lm.png?raw=true)
+
+
+### Validated Linear Regression MAE
 ```
 mae_lm = []
 
@@ -73,6 +79,7 @@ print("Validated MAE Linear Regression = ${:,.2f}".format(1000*np.mean(mae_lm)))
 Validated MAE Linear Regression = $4,433.17
 
 ## Kernel Weighted Local Regression
+
 
 ### Functions
 ```
@@ -128,6 +135,8 @@ def Gaussian(x):
 ```
 
 ### Four Kernel Regressions Summary Plot
+![alt text](https://github.com/rays1024/Project-1/blob/main/lk.png?raw=true)
+
 
 ### Validated Gaussian Kernel Regression MAE
 ```
@@ -183,6 +192,8 @@ Validated MAE Local Kernel Regression = $4,123.69
 
 ## Neural Networks
 ### Neural Network Regression Plot
+![alt text](https://github.com/rays1024/Project-1/blob/main/nn.png?raw=true)
+
 
 ### Validated Neural Network Regression MAE
 ```

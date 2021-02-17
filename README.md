@@ -60,7 +60,7 @@ from sklearn.svm import SVR
 ```
 
 ## Linear Regression
-Linear regression is a very commonly used tool for making prediction. It estimates each x's for their predicting power and the significance of their results. It calculates an estimation function for which the sum of squared differences between the observations and predictions is the least. When we only have one x, the number of rooms, the linear regression produces a very simple prediction function: a straight line. This function is a very weak learner and yields a high mean absolute error of $4,433.17 as shown below.
+Linear regression is a very commonly used tool for making predictions. It estimates each independent variable for its predicting power and the significance of its result. It calculates an estimation function for which the sum of squared differences between the observations and predictions is the least. When we only have one x, the number of rooms, the linear regression produces a very simple prediction function: a straight line. This function is a very weak learner and yields a high mean absolute error of $4,433.17 as shown below.
 ### Linear Regression Plot
 ![alt text](https://github.com/rays1024/Project-1/blob/main/lm.png?raw=true)
 

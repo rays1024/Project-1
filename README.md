@@ -222,6 +222,8 @@ Validated MAE Neural Network Regression = $4,108.31
 
 ## Extreme Boosting Algorithm (XGBoost)
 
+XGBoost is a Machine Learning algorithm based on random forest algorithm. In the boosting algorithm, decision trees alternate selection criteria that creates a dynamic selection process. In XGBoost, the algorithm uses gradient descent algorithm that minimizes error and optimizes in terms of computing resources and time. This process eliminates weak learners to improve the performance of the algorithm. The validated mean absolute error for XGBoost is $4136.63.
+
 ### Validated XGBoost MAE
 ```
 model_xgb = xgb.XGBRegressor(objective ='reg:squarederror',n_estimators=100,reg_lambda=20,alpha=1,gamma=10,max_depth=3)
